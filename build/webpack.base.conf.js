@@ -76,13 +76,13 @@ module.exports = {
         }
       },
       {
-        test: /\.scss$/,
+        test: /\.s[ac]ss$/i,
         use: [
-          'vue-style-loader',
-          'css-loader',
-          'sass-loader'
-        ]
-      }
+          "style-loader",
+          "css-loader",
+          "sass-loader",
+        ],
+      },
     ]
   },
   node: {
