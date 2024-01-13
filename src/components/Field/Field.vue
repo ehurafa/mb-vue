@@ -1,12 +1,10 @@
 <template>
-  <div class="content">
-    <h1>teste</h1>
-  </div>
+  <div class="field">field</div>
 </template>
 
 <script>
 export default {
-  name: 'Content'
+  name: 'Field'
 }
 </script>
 
