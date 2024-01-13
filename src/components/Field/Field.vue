@@ -4,7 +4,13 @@
 
 <script>
 export default {
-  name: 'Field'
+  name: 'Field',
+  props: {
+    text: { type: String },
+    value: { type: String },
+    type: { type: String },
+    disabled: { type: Boolean },
+  }
 }
 </script>
 

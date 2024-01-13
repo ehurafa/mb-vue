@@ -1,15 +1,13 @@
 <template>
   <div class="content">
-    <h1>teste</h1>
+    <h1>Legal Person</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Content'
+  name: 'LegalPerson'
 }
 </script>
 
-<style>
-  @import './style.scss';
-</style>
+<style></style>
