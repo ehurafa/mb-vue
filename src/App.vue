@@ -29,7 +29,7 @@ html, body {
 .content {
     width: 100%;
     max-width: $max-width;
-    padding: 100px;
+    padding: 100px 50px;
     height: 100vh;
 }
 

@@ -1,7 +1,7 @@
 <template>
   <div class="input">
     <label :for="id">{{ label }}</label>
-    <input :type="type" :value="value" :disabled="disabled" v-on:input="change($event)" />
+    <input :type="type" :value="value" :disabled="disabled" :readonly="readonly" v-on:input="change($event)" />
   </div>
 </template>
 
@@ -14,12 +14,13 @@ export default {
     type: { 
       type: String,
       default: 'text',
-      // validator: function (value) {
-      //   return ['text', 'email'].includes(value)
-      // }
+      validator: function (value) {
+        return ['text', 'email'].includes(value)
+      }
       },
     id: { type: String, required: true },
     disabled: { type: Boolean },
+    readonly: { type: Boolean },
   },
   methods: {
     change(e) {

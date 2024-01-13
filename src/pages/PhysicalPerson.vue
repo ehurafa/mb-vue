@@ -16,7 +16,7 @@
         <Input label="Telefone" :value.sync="person.phone" id="phone" />
       </Field>
       <Field class="group">
-          <Button label="Continuar" class="secondary" to="/" />
+          <Button label="Voltar" class="secondary" to="/" />
           <Button label="Continuar" to="/" />    
       </Field>
     </div>
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import Content from "@/template/content/Content";
+import Content from "@/template/Content";
 import Field from "@/components/field/Field";
 import Input from "@/components/input/Input";
 import Button from "@/components/button/Button";
@@ -46,11 +46,6 @@ export default {
       }
     }
   },
-   methods: {
-    test(e) {
-      console.log("test", e);
-    }
-  }
 }
 </script>
 

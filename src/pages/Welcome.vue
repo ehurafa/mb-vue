@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import Content from "@/template/content/Content";
+import Content from "@/template/Content";
 import Field from "@/components/field/Field";
 import Input from "@/components/input/Input";
 import Button from "@/components/button/Button";
