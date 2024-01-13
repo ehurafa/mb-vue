@@ -1,7 +1,7 @@
 <template>
   <div class="radio-group">
-    <Radio id="radio1" v-model="personType" value="pp" name="person" label="Pessoa Física" @change="changed" />
-    <Radio id="radio2" v-model="personType" value="lp" name="person" label="Pessoa Jurídica" @change="changed" />
+    <Radio id="radio1" v-model="personType" value="Pessoa Física" name="person" label="Pessoa Física" @change="changed" />
+    <Radio id="radio2" v-model="personType" value="Pessoa Jurídica" name="person" label="Pessoa Jurídica" @change="changed" />
   </div>
 </template>
 

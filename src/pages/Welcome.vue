@@ -3,13 +3,13 @@
     <div>{{ person }}</div>
     <div class="welcome">
       <Field>
-        <Input type="email" label="Endereço de e-mail" :value.sync="person.email" id="email" />
+        <Input type="email" label="Endereço de e-mail" :value.sync="person.email" id="email" email />
       </Field>
       <Field>
-        <RadioGroup v-model="foo" @changed="foo = $event" />
+        <RadioGroup v-model="person.person_type" @changed="person.person_type = $event" />
       </Field>
       <Field>
-        <Button text="Continuar" />
+        <Button label="Continuar" to="/" />
       </Field>
     </div>
   </Content>  
@@ -29,7 +29,8 @@ export default {
     return {
       foo: '',
       person: {
-        email: 'bar'
+        email: '',
+        person_type: '',
       }
     }
   },

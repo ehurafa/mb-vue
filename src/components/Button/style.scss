@@ -1,0 +1,20 @@
+button {
+    border-radius: 3px;
+    background-color: $color-primary;
+    width: 100%;
+    font-size: 0.6rem;
+    height: 1.5rem;
+    border: 0;
+    cursor: pointer;
+
+    color: $color-white;
+
+    &:hover {
+        background-color: $color-black;
+    }
+
+    &[disabled] {
+        background-color: $color-secondary;
+        cursor: text;
+    }
+}

@@ -1,14 +1,19 @@
 <template>
-  <button>button</button>
+  <button :disabled="disabled">{{ label }}</button>
 </template>
 
 <script>
 export default {
   name: 'Button',
-  props: ['text']
-}
+  props: {
+    label: { type: String, required: true },
+    disabled: { type: Boolean },
+    to: { type: String, required: true },
+    }
+  }
 </script>
 
-<style>
+<style lang="scss">
+  @import '../../assets/style/variables.scss';
   @import './style.scss';
 </style>
