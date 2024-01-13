@@ -36,4 +36,9 @@ html, body {
 label, label {
     font-size: 0.8rem;
 }
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
 </style>

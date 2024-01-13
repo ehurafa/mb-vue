@@ -15,5 +15,6 @@ export default {
 
 <style lang="scss">
   @import '../../assets/style/variables.scss';
+  @import '../../assets/style/mixins.scss';
   @import './style.scss';
 </style>

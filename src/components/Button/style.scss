@@ -1,5 +1,7 @@
 button {
-    border-radius: 3px;
+    @include transition(all, 0.3s);
+
+    border-radius: 5px;
     background-color: $color-primary;
     width: 100%;
     font-size: 0.6rem;
