@@ -1,8 +1,9 @@
 <template>
   <Content>
+    <div>{{ person }}</div>
     <div class="welcome">
       <Field>
-        <Input type="email" text="Endereço de E-mail" />
+        <Input type="email" label="Endereço de e-mail" :value.sync="person.email" id="email" />
       </Field>
       <Field>
         <RadioGroup v-model="foo" @changed="foo = $event" />
@@ -26,7 +27,10 @@ export default {
   components: { Content, Field, Input, Button, RadioGroup },
   data: () => {
     return {
-      foo: ''
+      foo: '',
+      person: {
+        email: 'bar'
+      }
     }
   },
    methods: {

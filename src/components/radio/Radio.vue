@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="radio">
     <label :for="id">
-      <span>{{ label }}</span>
       <input :id="id" type="radio" v-on="listeners" v-bind="$attrs">
+      <span>{{ label }}</span>
     </label>
   </div>
 </template>
@@ -10,6 +10,7 @@
 <script>
 export default {
   name: 'Radio',
+  inheritAttrs: false,
   props: {
     id: {
       type: String,
