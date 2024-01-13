@@ -10,7 +10,7 @@
         <RadioGroup v-model="person.person_type" @changed="person.person_type = $event" />
       </Field>
       <Field>
-        <Button label="Continuar" to="/" />
+        <Button label="Continuar" to="/" :disabled="actionButton" />
       </Field>
     </div>
   </Content>  
@@ -24,22 +24,39 @@ import Button from "@/components/button/Button";
 import RadioGroup from "@/components/radio-group/RadioGroup";
 import Step from "@/components/step/Step";
 
+import userMixin from "@/userMixin";
+
 export default {
   name: 'Welcome',
   components: { Content, Field, Input, Button, RadioGroup, Step },
+  mixins: [userMixin],
   data: () => {
     return {
-      foo: '',
       person: {
         email: '',
         person_type: '',
       }
     }
   },
-   methods: {
-    test(e) {
-      console.log("test", e);
+  methods: {
+
+  },
+  computed: {
+    actionButton() {
+      return true
+    } 
+  },
+  mounted() {
+    console.log('user ', this.user)
+    const clickHandler = function(clickCount) {
+      console.log(`The button has been clicked ${clickCount} times!`)
     }
+
+  },
+  beforeRouteEnter: (to, from, next) => {
+    console.log('to ', to)
+    console.log('from ', from)
+    next()
   }
 }
 </script>

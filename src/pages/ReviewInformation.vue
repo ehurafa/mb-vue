@@ -37,9 +37,12 @@ import Button from "@/components/button/Button";
 import RadioGroup from "@/components/radio-group/RadioGroup";
 import Step from "@/components/step/Step";
 
+import userMixin from "@/userMixin";
+
 export default {
   name: 'Welcome',
   components: { Content, Field, Input, Button, RadioGroup, Step },
+  mixins: [userMixin],
   data: () => {
     return {
       person: {

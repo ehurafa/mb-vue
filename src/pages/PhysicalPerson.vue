@@ -19,6 +19,7 @@
           <Button label="Voltar" class="secondary" to="/" />
           <Button label="Continuar" to="/" />    
       </Field>
+      <button @click="foo">teste</button>
     </div>
   </Content>  
 </template>
@@ -31,9 +32,12 @@ import Button from "@/components/button/Button";
 import RadioGroup from "@/components/radio-group/RadioGroup";
 import Step from "@/components/step/Step";
 
+import userMixin from "@/userMixin";
+
 export default {
-  name: 'Welcome',
+  name: 'PhysicalPerson',
   components: { Content, Field, Input, Button, RadioGroup, Step },
+  mixins: [userMixin],
   data: () => {
     return {
       person: {
@@ -45,6 +49,12 @@ export default {
         phone: ''
       }
     }
+  },
+  methods: {
+      foo() {
+        this.$router.push('/')
+        console.log('foo')
+      }
   },
 }
 </script>

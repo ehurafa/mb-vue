@@ -8,13 +8,13 @@ import ReviewInformation from "@/pages/ReviewInformation";
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   routes: [
     {
       path: '/',
       name: 'Welcome',
-      component: Welcome
+      component: Welcome,
     },
     {
       path: '/pessoa-juridica',
@@ -38,3 +38,5 @@ export default new Router({
     }
   ]
 })
+
+export default router;
