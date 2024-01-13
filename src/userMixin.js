@@ -1,6 +1,6 @@
 
 const userMixin = {
-    data: () => {
+    data() {
         return {
             user: {
                 email: '',
@@ -16,12 +16,7 @@ const userMixin = {
                 person_type: ''
             }
         }
-    },
-    methods: {
-      hello: function () {
-        console.log('hello from mixin!!!!')
       }
-    }
   }
 
 export default userMixin;

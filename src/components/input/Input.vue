@@ -1,7 +1,7 @@
 <template>
   <div class="input">
     <label :for="id">{{ label }}</label>
-    <input :type="type" :value="value" :disabled="disabled" :readonly="readonly" v-on:input="change($event)" />
+    <input :type="type" :value="value" :disabled="disabled" :readonly="readonly" v-on:input="change($event)" @keyup="keyup" />
   </div>
 </template>
 
@@ -24,7 +24,10 @@ export default {
   },
   methods: {
     change(e) {
-      this.$emit('update:value', e.target.value)
+      this.$emit('update:value', e.target.value);      
+    },
+    keyup() {
+      this.$emit('keyup');
     }
   }
 }

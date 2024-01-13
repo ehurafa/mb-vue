@@ -4,13 +4,13 @@
     <h2>Seja bem vindo(a)</h2>
     <div class="welcome">
       <Field>
-        <Input label="Endereço de e-mail" :value.sync="person.email" id="email" />
+        <Input label="Endereço de e-mail" :value.sync="person.email" id="email" @keyup="emailValidate" />
       </Field>
       <Field>
         <RadioGroup v-model="person.person_type" @changed="person.person_type = $event" />
       </Field>
       <Field>
-        <Button label="Continuar" to="/" :disabled="actionButton" />
+        <Button label="Continuar" to="/" :disabled="lockedButton" />
       </Field>
     </div>
   </Content>  
@@ -25,11 +25,12 @@ import RadioGroup from "@/components/radio-group/RadioGroup";
 import Step from "@/components/step/Step";
 
 import userMixin from "@/userMixin";
+import rulesMixin from "@/rulesMixin";
 
 export default {
   name: 'Welcome',
   components: { Content, Field, Input, Button, RadioGroup, Step },
-  mixins: [userMixin],
+  mixins: [userMixin, rulesMixin],
   data: () => {
     return {
       person: {
@@ -39,18 +40,22 @@ export default {
     }
   },
   methods: {
-
+    emailValidate() {
+      if (this.person.email.length > 2) {
+        this.rules.email.valid = true;
+      } else {
+        this.rules.email.valid = false;
+      }
+    }
   },
   computed: {
-    actionButton() {
-      return true
+    lockedButton() {
+      return !this.rules.email.valid;
     } 
   },
   mounted() {
-    console.log('user ', this.user)
-    const clickHandler = function(clickCount) {
-      console.log(`The button has been clicked ${clickCount} times!`)
-    }
+    console.log('this.$user >> ', this.user)
+    console.log('this.$rules >>>>>> ', this.rules)
 
   },
   beforeRouteEnter: (to, from, next) => {
