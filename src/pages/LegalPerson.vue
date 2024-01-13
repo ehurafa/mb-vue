@@ -1,12 +1,17 @@
 <template>
-  <div class="content">
-    <h1>Legal Person</h1>
+  <Content>
+    <div class="welcome">
+    <h1>Legal person</h1>
   </div>
+  </Content>  
 </template>
 
 <script>
+import Content from "@/template/content/Content";
+
 export default {
-  name: 'LegalPerson'
+  name: 'LegalPerson',
+  components: { Content }
 }
 </script>
 

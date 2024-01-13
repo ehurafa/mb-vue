@@ -1,12 +1,17 @@
 <template>
-  <div class="content">
-    <h1>Password</h1>
-  </div>
+  <Content>
+    <div class="passord">
+      password
+    </div>
+  </Content>
 </template>
 
 <script>
+import Content from "@/template/content/Content";
+
 export default {
-  name: 'password'
+  name: 'password',
+  components: { Content }
 }
 </script>
 
