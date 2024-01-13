@@ -17,12 +17,12 @@ export default new Router({
       component: Welcome
     },
     {
-      path: '/pessoa-fisica',
+      path: '/pessoa-juridica',
       name: 'LegalPerson',
       component: LegalPerson
     },
     {
-      path: '/pessoa-juridica',
+      path: '/pessoa-fisica',
       name: 'PhysicalPerson',
       component: PhysicalPerson
     },

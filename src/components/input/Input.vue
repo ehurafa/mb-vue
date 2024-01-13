@@ -1,8 +1,7 @@
 <template>
   <div class="input">
     <label :for="id">{{ label }}</label>
-    <input v-if="email" type="email" :value="value" :disabled="disabled" v-on:input="change($event)" />
-    <input v-else type="text" :value="value" :disabled="disabled" v-on:input="change($event)" />
+    <input :type="type" :value="value" :disabled="disabled" v-on:input="change($event)" />
   </div>
 </template>
 
@@ -12,7 +11,13 @@ export default {
   props: {
     label: { type: String, required: true },
     value: { type: String, required: true },
-    email: { type: Boolean },
+    type: { 
+      type: String,
+      default: 'text',
+      // validator: function (value) {
+      //   return ['text', 'email'].includes(value)
+      // }
+      },
     id: { type: String, required: true },
     disabled: { type: Boolean },
   },

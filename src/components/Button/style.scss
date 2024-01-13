@@ -19,4 +19,15 @@ button {
         background-color: $color-secondary;
         cursor: text;
     }
+
+    &.secondary {
+        background-color: $color-white;
+        color: $color-primary;
+        border: 2px solid  $color-primary;
+
+        &:hover {
+            color: $color-black;
+            border: 2px solid  $color-black;
+        }
+    }
 }

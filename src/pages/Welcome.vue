@@ -4,7 +4,7 @@
     <h2>Seja bem vindo(a)</h2>
     <div class="welcome">
       <Field>
-        <Input type="email" label="Endereço de e-mail" :value.sync="person.email" id="email" email />
+        <Input label="Endereço de e-mail" :value.sync="person.email" id="email" />
       </Field>
       <Field>
         <RadioGroup v-model="person.person_type" @changed="person.person_type = $event" />
