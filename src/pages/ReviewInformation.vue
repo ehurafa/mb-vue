@@ -4,22 +4,22 @@
     <h2>Revise suas informações</h2>
     <div class="physical-person">
       <Field>
-        <Input label="Endereço de e-mail" :value.sync="person.email" id="email" readonly />
+        <Input label="Endereço de e-mail" :value.sync="user.email" id="email" readonly />
       </Field>
       <Field>
-        <Input label="Nome" :value.sync="person.name" id="name" />
+        <Input label="Nome" :value.sync="user.name" id="name" />
       </Field>
       <Field>
-        <Input label="CPF" :value.sync="person.cpf" id="cpf" />
+        <Input label="CPF" :value.sync="user.cpf" id="cpf" />
       </Field>
       <Field>
-        <Input label="Data de Nascimento" :value.sync="person.birthdata" id="birthdata" />
+        <Input label="Data de Nascimento" :value.sync="user.birthdata" id="birthdata" />
       </Field>
       <Field>
-        <Input label="Telefone" :value.sync="person.phone" id="phone" />
+        <Input label="Telefone" :value.sync="user.phone" id="phone" />
       </Field>
       <Field>
-        <Input label="Telefone" :value.sync="person.password" id="password" />
+        <Input label="Telefone" :value.sync="user.password" id="password" />
       </Field>
       <Field class="group">
           <Button label="Voltar" class="secondary" to="/" />
@@ -42,19 +42,7 @@ import userMixin from "@/userMixin";
 export default {
   name: 'Welcome',
   components: { Content, Field, Input, Button, RadioGroup, Step },
-  mixins: [userMixin],
-  data: () => {
-    return {
-      person: {
-        email: '',
-        name: '',
-        cpf: '',
-        birthdata: '',
-        phone: '',
-        password: '',
-      }
-    }
-  },
+  mixins: [userMixin]
 }
 </script>
 

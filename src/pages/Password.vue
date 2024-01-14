@@ -4,7 +4,7 @@
     <h2>Senha de acesso</h2>
     <div class="password">
       <Field>
-        <Input label="Sua senha" :value.sync="person.password" id="password" />
+        <Input label="Sua senha" :value.sync="user.password" id="password" />
       </Field>
       <Field class="group">
           <Button label="Continuar" class="secondary" to="/" />
@@ -27,14 +27,7 @@ import userMixin from "@/userMixin";
 export default {
   name: 'Welcome',
   components: { Content, Field, Input, Button, RadioGroup, Step },
-  mixins: [userMixin],
-  data: () => {
-    return {
-      person: {
-        password: '',
-      }
-    }
-  },
+  mixins: [userMixin]
 }
 </script>
 

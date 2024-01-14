@@ -4,22 +4,21 @@
     <h2>Pessoa Física</h2>
     <div class="physical-person">
       <Field>
-        <Input label="Nome" :value.sync="person.name" id="name" />
+        <Input label="Nome" :value.sync="user.name" id="name" />
       </Field>
       <Field>
-        <Input label="CPF" :value.sync="person.cpf" id="cpf" />
+        <Input label="CPF" :value.sync="user.cpf" id="cpf" />
       </Field>
       <Field>
-        <Input label="Data de Nascimento" :value.sync="person.birthdata" id="birthdata" />
+        <Input label="Data de Nascimento" :value.sync="user.birthdata" id="birthdata" />
       </Field>
       <Field>
-        <Input label="Telefone" :value.sync="person.phone" id="phone" />
+        <Input label="Telefone" :value.sync="user.phone" id="phone" />
       </Field>
       <Field class="group">
           <Button label="Voltar" class="secondary" to="/" />
           <Button label="Continuar" to="/" />    
       </Field>
-      <button @click="foo">teste</button>
     </div>
   </Content>  
 </template>
@@ -34,28 +33,29 @@ import Step from "@/components/step/Step";
 
 import userMixin from "@/userMixin";
 
+import { Bus } from '@/Bus';
+
 export default {
-  name: 'PhysicalPerson',
+  name: 'Physicaluser',
   components: { Content, Field, Input, Button, RadioGroup, Step },
   mixins: [userMixin],
   data: () => {
     return {
-      person: {
+      user: {
         email: '',
         name: '',
-        person_type: '',
+        user_type: '',
         cpf: '',
         birthdata: '',
         phone: ''
       }
     }
   },
-  methods: {
-      foo() {
-        this.$router.push('/')
-        console.log('foo')
-      }
-  },
+  beforeRouteEnter: (to, from, next) => {
+    if (Bus.routes.physical_person) {
+      next()
+    }
+  }
 }
 </script>
 

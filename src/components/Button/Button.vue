@@ -1,5 +1,5 @@
 <template>
-  <button :disabled="disabled">{{ label }}</button>
+  <button :disabled="disabled" @click="next">{{ label }}</button>
 </template>
 
 <script>
@@ -8,9 +8,14 @@ export default {
   props: {
     label: { type: String, required: true },
     disabled: { type: Boolean },
-    to: { type: String, required: true },
+  },
+  methods: {
+    next() {
+      this.$emit('next')
     }
   }
+}
+  
 </script>
 
 <style lang="scss">
