@@ -4,26 +4,26 @@
     <h2>Revise suas informações</h2>
     <div class="physical-person">
       <Field>
-        <Input label="Endereço de e-mail" :value.sync="user.email" id="email" readonly />
+        <Input label="Endereço de e-mail" :value.sync="$root.user.email" id="email" readonly />
       </Field>
       <Field>
-        <Input label="Nome" :value.sync="user.name" id="name" />
+        <Input label="Nome" :value.sync="$root.user.name" id="name" />
       </Field>
       <Field>
-        <Input label="CPF" :value.sync="user.cpf" id="cpf" />
+        <Input label="CPF" :value.sync="$root.user.cpf" id="cpf" />
       </Field>
       <Field>
-        <Input label="Data de Nascimento" :value.sync="user.birthdate" id="birthdate" />
+        <Input label="Data de Nascimento" :value.sync="$root.user.birthdate" id="birthdate" />
       </Field>
       <Field>
-        <Input label="Telefone" :value.sync="user.phone" id="phone" />
+        <Input label="Telefone" :value.sync="$root.user.phone" id="phone" />
       </Field>
       <Field>
-        <Input label="Telefone" :value.sync="user.password" id="password" />
+        <Input label="Telefone" :value.sync="$root.user.password" id="password" />
       </Field>
-      <Field class="group">
-          <Button label="Voltar" class="secondary" to="/" />
-          <Button label="Continuar" to="/" />    
+      <Field class="group"> 
+          <Button label="Voltar" class="secondary" @goto="prev" />
+          <Button label="Cadastrar"  @goto="next" />   
       </Field>
     </div>
   </Content>  
@@ -42,7 +42,15 @@ import userMixin from "@/userMixin";
 export default {
   name: 'Welcome',
   components: { Content, Field, Input, Button, RadioGroup, Step },
-  mixins: [userMixin]
+  mixins: [userMixin],
+  methods: {
+    prev() {
+      this.$router.push('/senha-de-acesso');
+    },
+    next() {
+      console.log('cadastrando...')
+    }
+  }
 }
 </script>
 

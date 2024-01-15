@@ -50,6 +50,9 @@ const UTILS = {
         }
 
         return true;
+    },
+    validateCNPJ: (cnpj) => {
+        return true
     }
 }
 

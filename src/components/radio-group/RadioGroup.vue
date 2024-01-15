@@ -20,7 +20,6 @@ export default {
   },
   methods: {
     changed(e) {
-      console.log("Changed", e);
       this.$emit("changed", e);
     }
   }

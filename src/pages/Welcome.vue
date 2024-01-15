@@ -4,10 +4,10 @@
     <h2>Seja bem vindo(a)</h2>
     <div class="welcome">
       <Field>
-        <Input label="Endereço de e-mail" :value.sync="user.email" id="email" :error="rules.email.valid === false" placeholder="Ex: silvio.santos@gmail.com" @blur="validateEmail" />
+        <Input label="Endereço de e-mail" :value.sync="$root.user.email" id="email" :error="$root.rules.email.valid === false" placeholder="Ex: silvio.santos@gmail.com" @blur="validateEmail" />
       </Field>
       <Field>
-        <RadioGroup v-model="user.user_type" @changed="userTypeValidate($event)" />
+        <RadioGroup v-model="$root.user.user_type" @changed="userTypeValidate($event)" />
       </Field>
       <Field>
         <Button label="Continuar" :disabled="!unlockedButton" @goto="next" />
@@ -37,16 +37,16 @@ export default {
   mixins: [userMixin],
   methods: {
     validateEmail() {
-      if(UTILS.validateEmail(this.user.email)) {
-        this.rules.email.valid = true;
+      if(UTILS.validateEmail(this.$root.user.email)) {
+        this.$root.rules.email.valid = true;
       } else {
         this.showErrorMessage(MESSAGES.invalid_email);
-        this.rules.email.valid = false;
+        this.$root.rules.email.valid = false;
       }
     },
     userTypeValidate(type) {
-      this.user.user_type = type;
-      this.rules.user_type.valid = true;
+      this.$root.user.user_type = type;
+      this.$root.rules.user_type.valid = true;
     },
     next() {
       Bus.unLockStep2();
@@ -55,9 +55,9 @@ export default {
   },
   computed: {
     unlockedButton() {
-      return this.rules.email.valid && this.rules.user_type.valid;
+      return this.$root.rules.email.valid && this.$root.rules.user_type.valid;
     },
-  }
+  },
 }
 </script>
 

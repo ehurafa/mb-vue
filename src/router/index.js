@@ -20,12 +20,6 @@ const router = new Router({
       path: '/pessoa-juridica',
       name: 'LegalPerson',
       component: LegalPerson,
-      beforeEnter: (to, from, next) => {
-        console.log('testeee')
-        // reject the navigation
-        next()
-        // return true
-      },
     },
     {
       path: '/pessoa-fisica',

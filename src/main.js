@@ -9,6 +9,60 @@ Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  data: {
+    user: {
+      email: '',
+      name: '',
+      cpf: '',
+      birthdate: '',
+      phone: '',
+      password: '',
+      companyname: '',
+      cnpj: '',
+      creationdate: '',
+      companyphone: '',
+      user_type: ''
+    },
+    rules: {
+      email: {
+          valid: null
+      },
+      user_type: {
+          valid: null
+      },
+      name: {
+          valid: null
+      },
+      cpf: {
+          valid: null
+      },
+      birthdate: {
+          valid: null
+      },
+      phone: {
+          valid: null
+      },
+      companyname: {
+          valid: null
+      },
+      cnpj: {
+          valid: null
+      },
+      creationdate: {
+          valid: null
+      },
+      companyphone: {
+          valid: null
+      },
+    },
+    valid_routes: {
+      welcome: true,
+      physical_person: false,
+      legal_person: false,
+      password: false,
+      review_information: false
+    }
+  },
   router,
   components: { App },
   template: '<App/>'

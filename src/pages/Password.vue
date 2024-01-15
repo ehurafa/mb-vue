@@ -4,11 +4,11 @@
     <h2>Senha de acesso</h2>
     <div class="password">
       <Field>
-        <Input label="Sua senha" :value.sync="user.password" id="password" />
+        <Input label="Sua senha" :value.sync="$root.user.password" id="password" />
       </Field>
-      <Field class="group">
-          <Button label="Continuar" class="secondary" to="/" />
-          <Button label="Continuar" to="/" />    
+      <Field class="group"> 
+          <Button label="Voltar" class="secondary" @goto="prev" />
+          <Button label="Continuar"  @goto="next" />   
       </Field>
     </div>
   </Content>  
@@ -25,9 +25,17 @@ import Step from "@/components/step/Step";
 import userMixin from "@/userMixin";
 
 export default {
-  name: 'Welcome',
+  name: 'Password',
   components: { Content, Field, Input, Button, RadioGroup, Step },
-  mixins: [userMixin]
+  mixins: [userMixin],
+  methods: {
+    prev() {
+      this.$router.push('/pessoa-juridica');
+    },
+    next() {
+      this.$router.push('/revise-suas-informacoes');
+    }
+  }
 }
 </script>
 

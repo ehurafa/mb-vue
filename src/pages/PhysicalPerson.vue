@@ -4,20 +4,20 @@
     <h2>Pessoa Física</h2>
     <div class="physical-person">
       <Field>
-        <Input label="Nome" :value.sync="user.name" id="name" :error="rules.name.valid === false" placeholder="Ex: Ayrton Senna" @blur="validateName($event)"  />
+        <Input label="Nome" :value.sync="$root.user.name" id="name" :error="$root.rules.name.valid === false" placeholder="Ex: Ayrton Senna" @blur="validateName($event)"  />
       </Field>
       <Field>
-        <Input label="CPF" :value.sync="user.cpf" id="cpf" :error="rules.cpf.valid === false" placeholder="Ex: 456.675.656-77" @blur="validateCPF($event)"  />
+        <Input label="CPF" :value.sync="$root.user.cpf" id="cpf" :error="$root.rules.cpf.valid === false" placeholder="Ex: 456.675.656-77" @blur="validateCPF($event)"  />
       </Field>
       <Field>
-        <Input label="Data de Nascimento" :value.sync="user.birthdate" id="birthdate" :error="rules.birthdate.valid === false" placeholder="Ex: 01/01/2000" @blur="validateBirthdate($event)"  />
+        <Input label="Data de Nascimento" :value.sync="$root.user.birthdate" id="birthdate" :error="$root.rules.birthdate.valid === false" placeholder="Ex: 01/01/2000" @blur="validateBirthdate($event)"  />
       </Field>
       <Field>
-        <Input label="Telefone" :value.sync="user.phone" id="phone" :error="rules.phone.valid === false" placeholder="Ex: (11) 999999999" @blur="validatePhone($event)"  />
+        <Input label="Telefone" :value.sync="$root.user.phone" id="phone" :error="$root.rules.phone.valid === false" placeholder="Ex: (11) 999999999" @blur="validatePhone($event)"  />
       </Field>
       <Field class="group">
           <Button label="Voltar" class="secondary" @goto="prev" />
-          <Button label="Continuar" :disabled="!unlockedButton" @goto="next" />    
+          <Button label="Continuar" :disabled="!unlockedButton" @goto="next" />  
       </Field>
     </div>
   </Content>  
@@ -41,36 +41,36 @@ export default {
   mixins: [userMixin],
   computed: {
     unlockedButton() {
-      return this.rules.name.valid && this.rules.cpf.valid && this.rules.birthdate.valid && this.rules.phone.valid;
+      return this.$root.rules.name.valid && this.$root.rules.cpf.valid && this.$root.rules.birthdate.valid && this.rules.phone.valid;
     },
   },
   methods: {
     validateName(e) {
       if(e.length> 3) {
-        this.rules.name.valid = true;
+        this.$root.rules.name.valid = true;
       } else {
-        this.rules.name.valid = false;
+        this.$root.rules.name.valid = false;
       }
     },
     validateCPF(e) {
       if(UTILS.validateCPF(e)) {
-        this.rules.cpf.valid = true;
+        this.$root.rules.cpf.valid = true;
       } else {
-        this.rules.cpf.valid = false;
+        this.$root.rules.cpf.valid = false;
       }
     },
     validateBirthdate(e) {
       if(e.length === 10) {
-        this.rules.birthdate.valid = true;
+        this.$root.rules.birthdate.valid = true;
       } else {
-        this.rules.birthdate.valid = false;
+        this.$root.rules.birthdate.valid = false;
       }
     },
     validatePhone(e) {
       if(e.length> 8) {
-        this.rules.phone.valid = true;
+        this.$root.rules.phone.valid = true;
       } else {
-        this.rules.phone.valid = false;
+        this.$root.rules.phone.valid = false;
       }
     },
     prev() {
