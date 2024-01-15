@@ -71,6 +71,22 @@ const UTILS = {
     
         return true
     },
+    cpfMask: (v) => {
+        v=v.replace(/\D/g,"")                    
+        v=v.replace(/(\d{3})(\d)/,"$1.$2")       
+        v=v.replace(/(\d{3})(\d)/,"$1.$2")       
+                                                 
+        v=v.replace(/(\d{3})(\d{1,2})$/,"$1-$2") 
+        return v;
+    },
+    cnpjMask: (v) => {
+        v=v.replace(/\D/g,"")                          
+        v=v.replace(/^(\d{2})(\d)/,"$1.$2")             
+        v=v.replace(/^(\d{2})\.(\d{3})(\d)/,"$1.$2.$3") 
+        v=v.replace(/\.(\d{3})(\d)/,".$1/$2")           
+        v=v.replace(/(\d{4})(\d)/,"$1-$2")             
+        return v
+    },
     phoneMask: (value) => {
         console.log('phoneMask')
         if (!value) return ""
@@ -78,6 +94,17 @@ const UTILS = {
         value = value.replace(/(\d{2})(\d)/,"($1) $2")
         value = value.replace(/(\d)(\d{4})$/,"$1-$2")
         return value
+    },
+    dateMask(e){
+
+        var v=e.replace(/\D/g,"");
+        
+        v=v.replace(/(\d{2})(\d)/,"$1/$2") 
+        
+        v=v.replace(/(\d{2})(\d)/,"$1/$2") 
+        
+        return v
+        
     }
 }
 

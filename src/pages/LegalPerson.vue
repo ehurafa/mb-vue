@@ -7,13 +7,13 @@
         <Input label="Razão social" :value.sync="$root.user.companyname" :error="$root.rules.companyname.valid === false" placeholder="Ex: Nome da empresa"  id="companyname" @blur="validateCompanyName($event)" />
       </Field>
       <Field>
-        <Input label="CNPJ" :value.sync="$root.user.cnpj" :error="$root.rules.cnpj.valid === false" placeholder="Ex: 57.077.777/0001-66"  id="cnpj" @blur="validateCNPJ($event)" />
+        <Input label="CNPJ" :value.sync="$root.user.cnpj" :error="$root.rules.cnpj.valid === false" placeholder="Ex: 57.077.777/0001-66"  id="cnpj" @blur="validateCNPJ($event)" @keyup="applyCNPJMasck($event)" />
       </Field>
       <Field>
-        <Input label="Data de abertura" :value.sync="$root.user.creationdate" :error="$root.rules.creationdate.valid === false" placeholder="Ex: 01/01/2000"  id="creationdate" @blur="validateCreationDate($event)" />
+        <Input label="Data de abertura" :value.sync="$root.user.creationdate" :error="$root.rules.creationdate.valid === false" placeholder="Ex: 01/01/2000"  id="creationdate" @blur="validateCreationDate($event)" @keyup="applyDateMask($event)" />
       </Field>
       <Field>
-        <Input label="Telefone" :value.sync="$root.user.companyphone" :error="$root.rules.companyphone.valid === false" placeholder="Ex: (11) 999999999"  id="companyphone" @blur="validateCompanyPhone($event)" />
+        <Input label="Telefone" :value.sync="$root.user.companyphone" :error="$root.rules.companyphone.valid === false" placeholder="Ex: (11) 999999999"  id="companyphone" @blur="formatPhoneField($event)" @keyup="applyPhoneMask($event)"  />
       </Field>
       <Field class="group"> 
           <Button label="Voltar" class="secondary" @goto="prev" />
@@ -54,6 +54,9 @@ export default {
         this.$root.rules.cnpj.valid = false;
       }
     },
+    applyCNPJMasck(e) {
+      this.$root.user.cnpj = UTILS.cnpjMask(e)
+    },
     validateCreationDate(e) {
       if(e.length === 10) {
         this.$root.rules.creationdate.valid = true;
@@ -67,6 +70,19 @@ export default {
       } else {
         this.$root.rules.phone.valid = false;
       }
+    },
+    formatPhoneField(e) {
+      if(e.length === 15) {
+        this.$root.rules.companyphone.valid = true;
+      } else {
+        this.$root.rules.companyphone.valid = false;
+      }
+    },
+    applyPhoneMask(e) {
+      this.$root.user.companyphone = UTILS.phoneMask(e)
+    },
+    applyDateMask (e) {
+      this.$root.user.creationdate = UTILS.dateMask(e)
     },
     prev() {
       this.$router.push('/pessoa-fisica');

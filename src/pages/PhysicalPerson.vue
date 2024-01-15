@@ -3,17 +3,17 @@
     <Step current="2" />
     <h2>Pessoa Física</h2>
     <div class="physical-person">
-      <Field>
+      <Field>        
         <Input label="Nome" :value.sync="$root.user.name" id="name" :error="$root.rules.name.valid === false" placeholder="Ex: Ayrton Senna" @blur="validateName($event)"  />
       </Field>
       <Field>
-        <Input label="CPF" :value.sync="$root.user.cpf" id="cpf" :error="$root.rules.cpf.valid === false" placeholder="Ex: 456.675.656-77" @blur="validateCPF($event)"  />
+        <Input label="CPF" :value.sync="$root.user.cpf" id="cpf" :error="$root.rules.cpf.valid === false" placeholder="Ex: 456.675.656-77" @blur="validateCPF($event)" @keyup="applyCPFMasck($event)" />
       </Field>
       <Field>
-        <Input label="Data de Nascimento" :value.sync="$root.user.birthdate" id="birthdate" :error="$root.rules.birthdate.valid === false" placeholder="Ex: 01/01/2000" @blur="validateBirthdate($event)"  />
+        <Input label="Data de Nascimento" :value.sync="$root.user.birthdate" id="birthdate" :error="$root.rules.birthdate.valid === false" placeholder="Ex: 01/01/2000" @blur="validateBirthdate($event)" @keyup="applyDateMask($event)" />
       </Field>
       <Field>
-        <Input label="Telefone" :value.sync="$root.user.phone" id="phone" :error="$root.rules.phone.valid === false" placeholder="Ex: (11) 999999999" @blur="formatPhoneField($event)" @keyup="phoneMask"  />
+        <Input label="Telefone" :value.sync="$root.user.phone" id="phone" :error="$root.rules.phone.valid === false" placeholder="Ex: (11) 999999999" @blur="formatPhoneField($event)" @keyup="applyPhoneMask($event)"  />
       </Field>
       <Field class="group">
           <Button label="Voltar" class="secondary" @goto="prev" />
@@ -59,6 +59,9 @@ export default {
         this.$root.rules.cpf.valid = false;
       }
     },
+    applyCPFMasck(e) {
+      this.$root.user.cpf = UTILS.cpfMask(e)
+    },
     validateBirthdate(e) {
       if(e.length === 10) {
         this.$root.rules.birthdate.valid = true;
@@ -73,8 +76,18 @@ export default {
         this.$root.rules.phone.valid = false;
       }
     },
-    phoneMask(e) {
-      UTILS.phoneMask(e)
+    formatPhoneField(e) {
+      if(e.length === 15) {
+        this.$root.rules.phone.valid = true;
+      } else {
+        this.$root.rules.phone.valid = false;
+      }
+    },
+    applyPhoneMask(e) {
+      this.$root.user.phone = UTILS.phoneMask(e)
+    },
+    applyDateMask (e) {
+      this.$root.user.birthdate = UTILS.dateMask(e)
     },
     prev() {
       this.$router.push('/');
