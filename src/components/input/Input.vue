@@ -1,7 +1,7 @@
 <template>
   <div class="input">
     <label :for="id">{{ label }}</label>
-    <input :type="type" :value="value" :disabled="disabled" :readonly="readonly" v-on:input="change($event)" @blur="blur" />
+    <input :type="type" :value="value" :class="{ error: error }" :disabled="disabled" :readonly="readonly" :placeholder="placeholder" v-on:input="change($event)" @blur="blur($event)" />
   </div>
 </template>
 
@@ -10,6 +10,7 @@ export default {
   name: 'Input',
   props: {
     label: { type: String, required: true },
+    placeholder: { type: String },
     value: { type: String, required: true },
     type: { 
       type: String,
@@ -21,13 +22,14 @@ export default {
     id: { type: String, required: true },
     disabled: { type: Boolean },
     readonly: { type: Boolean },
+    error: { type: Boolean },
   },
   methods: {
     change(e) {
       this.$emit('update:value', e.target.value);      
     },
-    blur() {
-      this.$emit('blur');
+    blur(e) {
+      this.$emit('blur', e.target.value);
     }
   }
 }

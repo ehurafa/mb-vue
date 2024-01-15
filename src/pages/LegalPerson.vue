@@ -32,11 +32,17 @@ import RadioGroup from "@/components/radio-group/RadioGroup";
 import Step from "@/components/step/Step";
 
 import userMixin from "@/userMixin";
+import { Bus } from '@/Bus';
 
 export default {
   name: 'Welcome',
   components: { Content, Field, Input, Button, RadioGroup, Step },
   mixins: [userMixin],
+  beforeRouteEnter: (to, from, next) => {
+    if (Bus.routes.legal_person) {
+      next()
+    }
+  }
 }
 </script>
 

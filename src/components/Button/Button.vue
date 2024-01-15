@@ -1,5 +1,5 @@
 <template>
-  <button :disabled="disabled" @click="next">{{ label }}</button>
+  <button :disabled="disabled" @click="goto">{{ label }}</button>
 </template>
 
 <script>
@@ -10,8 +10,8 @@ export default {
     disabled: { type: Boolean },
   },
   methods: {
-    next() {
-      this.$emit('next')
+    goto() {
+      this.$emit('goto')
     }
   }
 }

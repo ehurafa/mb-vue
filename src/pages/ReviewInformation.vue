@@ -13,7 +13,7 @@
         <Input label="CPF" :value.sync="user.cpf" id="cpf" />
       </Field>
       <Field>
-        <Input label="Data de Nascimento" :value.sync="user.birthdata" id="birthdata" />
+        <Input label="Data de Nascimento" :value.sync="user.birthdate" id="birthdate" />
       </Field>
       <Field>
         <Input label="Telefone" :value.sync="user.phone" id="phone" />

@@ -6,7 +6,7 @@ const userMixin = {
                 email: '',
                 name: '',
                 cpf: '',
-                birthdata: '',
+                birthdate: '',
                 phone: '',
                 password: '',
                 companyname: '',
@@ -17,10 +17,22 @@ const userMixin = {
             },
             rules: {
                 email: {
-                    valid: false
+                    valid: null
                 },
                 user_type: {
-                    valid: false
+                    valid: null
+                },
+                name: {
+                    valid: null
+                },
+                cpf: {
+                    valid: null
+                },
+                birthdate: {
+                    valid: null
+                },
+                phone: {
+                    valid: null
                 }
             },
             valid_routes: {

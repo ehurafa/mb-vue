@@ -17,5 +17,17 @@
         &:hover {
             border-color: $color-black;
         }
-    }
+        &.error {
+            border-color: red;
+            background: #fff2f2;
+            &:hover {
+                border-color: red;
+                background: #fff2f2
+            }
+        }
+
+        &::placeholder {
+            color: #bbb;
+        }
+    }    
 }
