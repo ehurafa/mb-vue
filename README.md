@@ -8,6 +8,8 @@
 
 A aplicação irá iniciar. Após isso basta seguir os passos nos formulários.
 
+![Front-end](https://im2.ezgif.com/tmp/ezgif-2-cf9d690d09.gif)
+
 ## Versões fixadas para garantir o funcionamento do projeto
 
 | node        | 16.13  |
