@@ -56,9 +56,9 @@ export default {
     },
     validateCreationDate(e) {
       if(e.length === 10) {
-        this.$root.rules.birthdate.valid = true;
+        this.$root.rules.creationdate.valid = true;
       } else {
-        this.$root.rules.birthdate.valid = false;
+        this.$root.rules.creationdate.valid = false;
       }
     },
     validateCompanyPhone(e) {

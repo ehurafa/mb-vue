@@ -54,6 +54,9 @@ new Vue({
       companyphone: {
           valid: null
       },
+      password: {
+        valid: null
+    },
     },
     valid_routes: {
       welcome: true,

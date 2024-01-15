@@ -4,7 +4,7 @@
     <h2>Senha de acesso</h2>
     <div class="password">
       <Field>
-        <Input label="Sua senha" :value.sync="$root.user.password" id="password" />
+        <Input label="Sua senha" :value.sync="$root.user.password" :error="$root.rules.password.valid === false" id="password" @blur="validatePassword($event)" />
       </Field>
       <Field class="group"> 
           <Button label="Voltar" class="secondary" @goto="prev" />
@@ -29,6 +29,13 @@ export default {
   components: { Content, Field, Input, Button, RadioGroup, Step },
   mixins: [userMixin],
   methods: {
+    validatePassword(e) {
+      if(e.length > 2) {
+        this.$root.rules.password.valid = true;
+      } else {
+        this.$root.rules.password.valid = false;
+      }
+    },
     prev() {
       this.$router.push('/pessoa-juridica');
     },

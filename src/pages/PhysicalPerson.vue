@@ -13,7 +13,7 @@
         <Input label="Data de Nascimento" :value.sync="$root.user.birthdate" id="birthdate" :error="$root.rules.birthdate.valid === false" placeholder="Ex: 01/01/2000" @blur="validateBirthdate($event)"  />
       </Field>
       <Field>
-        <Input label="Telefone" :value.sync="$root.user.phone" id="phone" :error="$root.rules.phone.valid === false" placeholder="Ex: (11) 999999999" @blur="validatePhone($event)"  />
+        <Input label="Telefone" :value.sync="$root.user.phone" id="phone" :error="$root.rules.phone.valid === false" placeholder="Ex: (11) 999999999" @blur="formatPhoneField($event)" @keyup="phoneMask"  />
       </Field>
       <Field class="group">
           <Button label="Voltar" class="secondary" @goto="prev" />
@@ -72,6 +72,9 @@ export default {
       } else {
         this.$root.rules.phone.valid = false;
       }
+    },
+    phoneMask(e) {
+      UTILS.phoneMask(e)
     },
     prev() {
       this.$router.push('/');

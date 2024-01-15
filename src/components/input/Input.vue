@@ -1,7 +1,7 @@
 <template>
   <div class="input">
     <label :for="id">{{ label }}</label>
-    <input :type="type" :value="value" :class="{ error: error }" :disabled="disabled" :readonly="readonly" :placeholder="placeholder" v-on:input="change($event)" @blur="blur($event)" />
+    <input :type="type" :value="value" :class="{ error: error }" :id="id" :disabled="disabled" :readonly="readonly" :placeholder="placeholder" v-on:input="change($event)" @blur="blur($event)" @keyup="keyup($event)" />
   </div>
 </template>
 
@@ -30,6 +30,9 @@ export default {
     },
     blur(e) {
       this.$emit('blur', e.target.value);
+    },
+    keyup(e) {
+      this.$emit('keyup', e.target.value);
     }
   }
 }

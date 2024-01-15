@@ -7,19 +7,19 @@
         <Input label="Endereço de e-mail" :value.sync="$root.user.email" id="email" readonly />
       </Field>
       <Field>
-        <Input label="Nome" :value.sync="$root.user.name" id="name" />
+        <Input label="Nome" :value.sync="$root.user.name" id="name" readonly />
       </Field>
       <Field>
-        <Input label="CPF" :value.sync="$root.user.cpf" id="cpf" />
+        <Input label="CPF" :value.sync="$root.user.cpf" id="cpf" readonly />
       </Field>
       <Field>
-        <Input label="Data de Nascimento" :value.sync="$root.user.birthdate" id="birthdate" />
+        <Input label="Data de Nascimento" :value.sync="$root.user.birthdate" id="birthdate" readonly />
       </Field>
       <Field>
-        <Input label="Telefone" :value.sync="$root.user.phone" id="phone" />
+        <Input label="Telefone" :value.sync="$root.user.phone" id="phone" readonly />
       </Field>
       <Field>
-        <Input label="Telefone" :value.sync="$root.user.password" id="password" />
+        <Input label="Senha" :value.sync="$root.user.password" id="password" readonly />
       </Field>
       <Field class="group"> 
           <Button label="Voltar" class="secondary" @goto="prev" />
