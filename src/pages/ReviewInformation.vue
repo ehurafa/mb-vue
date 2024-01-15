@@ -1,6 +1,6 @@
 <template>
   <Content>
-    <Step current="5" />
+    <Step current="4" />
     <h2>Revise suas informações</h2>
     <div class="physical-person">
       <Field>

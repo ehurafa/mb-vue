@@ -41,7 +41,7 @@ export default {
   mixins: [userMixin],
   computed: {
     unlockedButton() {
-      return this.$root.rules.name.valid && this.$root.rules.cpf.valid && this.$root.rules.birthdate.valid && this.rules.phone.valid;
+      return this.$root.rules.name.valid && this.$root.rules.cpf.valid && this.$root.rules.birthdate.valid && this.$root.rules.phone.valid;
     },
   },
   methods: {

@@ -1,6 +1,6 @@
 <template>
   <Content>
-    <Step current="4" />
+    <Step current="3" />
     <h2>Senha de acesso</h2>
     <div class="password">
       <Field>

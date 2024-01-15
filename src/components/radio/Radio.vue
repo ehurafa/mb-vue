@@ -30,6 +30,7 @@ export default {
       return {
         ...this.$listeners,
         change: event => {
+          console.log('event ', event)
           this.$emit("change-radio", event.target.value);
           this.$emit("change", event.target.value);
         }

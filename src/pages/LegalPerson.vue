@@ -1,6 +1,6 @@
 <template>
   <Content>
-    <Step current="3" />
+    <Step current="2" />
     <h2>Pessoa Jurídica</h2>
     <div class="physical-person">
       <Field>
@@ -17,7 +17,7 @@
       </Field>
       <Field class="group"> 
           <Button label="Voltar" class="secondary" @goto="prev" />
-          <Button label="Continuar"  @goto="next" />   
+          <Button label="Continuar" :disabled="!unlockedButton" @goto="next" />   
       </Field>
     </div>
   </Content>  
@@ -39,7 +39,12 @@ export default {
   name: 'Welcome',
   components: { Content, Field, Input, Button, RadioGroup, Step },
   mixins: [userMixin],
-    methods: {
+  computed: {
+    unlockedButton() {
+      return this.$root.rules.companyname.valid && this.$root.rules.cnpj.valid && this.$root.rules.creationdate.valid && this.$root.rules.companyphone.valid;
+    },
+  },
+  methods: {
     validateCompanyName(e) {
       if(e.length> 3) {
         this.$root.rules.companyname.valid = true;

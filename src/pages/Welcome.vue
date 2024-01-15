@@ -35,6 +35,11 @@ export default {
   name: 'Welcome',
   components: { Content, Field, Input, Button, RadioGroup, Step },
   mixins: [userMixin],
+  data: () => {
+    return {
+      user_type: ''
+    }
+  },
   methods: {
     validateEmail() {
       if(UTILS.validateEmail(this.$root.user.email)) {
@@ -44,13 +49,24 @@ export default {
         this.$root.rules.email.valid = false;
       }
     },
+    getUserType(type) {
+      const types = {
+        pf: "Pessoa Física",
+        pj: "Pessoa Jurídica"
+      }
+
+      console.log('types["type"]' , types[type])
+      return types[type]
+    },
     userTypeValidate(type) {
-      this.$root.user.user_type = type;
+      this.user_type = type;
+      this.$root.user.user_type = this.getUserType(type);
       this.$root.rules.user_type.valid = true;
     },
     next() {
       Bus.unLockStep2();
-      this.$router.push('/pessoa-fisica');
+      const to = this.user_type === 'pf' ? '/pessoa-fisica' : '/pessoa-juridica';
+      this.$router.push(to);
     }
   },
   computed: {
