@@ -38,6 +38,7 @@ import RadioGroup from "@/components/radio-group/RadioGroup";
 import Step from "@/components/step/Step";
 
 import userMixin from "@/userMixin";
+import { Bus } from '@/Bus';
 
 export default {
   name: 'Welcome',
@@ -47,8 +48,20 @@ export default {
     prev() {
       this.$router.push('/senha-de-acesso');
     },
-    next() {
-      console.log('cadastrando...')
+    async next() {
+      const options = {
+        method: "POST",
+        headers: { "Content-Type": "application/json", 'Access-Control-Allow-Origin': 'http://localhost:5000', 'Access-Control-Allow-Credentials': 'true' },
+        body: JSON.stringify({ title: "Vue POST Request Example" })
+      };
+      const response = await fetch("http://localhost:5000/registration", options);
+      const data = await response.json();
+      this.postId = data.id;
+    }
+  },
+  beforeRouteEnter: (to, from, next) => {
+    if (Bus.routes.review_information) {
+      next()
     }
   }
 }

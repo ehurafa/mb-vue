@@ -26,9 +26,7 @@ import Step from "@/components/step/Step";
 
 import UTILS from "@/utils/utils";
 import MESSAGES from "@/utils/messages";
-
 import userMixin from "@/userMixin";
-
 import { Bus } from '@/Bus';
 
 export default {
@@ -50,12 +48,11 @@ export default {
       }
     },
     getUserType(type) {
+      console.log(type)
       const types = {
         pf: "Pessoa Física",
         pj: "Pessoa Jurídica"
       }
-
-      console.log('types["type"]' , types[type])
       return types[type]
     },
     userTypeValidate(type) {

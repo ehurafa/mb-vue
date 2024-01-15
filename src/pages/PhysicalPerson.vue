@@ -94,7 +94,7 @@ export default {
     },
     next() {
       Bus.unLockStep3();
-      this.$router.push('/pessoa-juridica');
+      this.$router.push('/senha-de-acesso');
     }
   },
   beforeRouteEnter: (to, from, next) => {

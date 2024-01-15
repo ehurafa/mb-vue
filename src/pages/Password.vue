@@ -8,7 +8,7 @@
       </Field>
       <Field class="group"> 
           <Button label="Voltar" class="secondary" @goto="prev" />
-          <Button label="Continuar"  @goto="next" />   
+          <Button label="Continuar" :disabled="!unlockedButton" @goto="next" />   
       </Field>
     </div>
   </Content>  
@@ -23,11 +23,17 @@ import RadioGroup from "@/components/radio-group/RadioGroup";
 import Step from "@/components/step/Step";
 
 import userMixin from "@/userMixin";
+import { Bus } from '@/Bus';
 
 export default {
   name: 'Password',
   components: { Content, Field, Input, Button, RadioGroup, Step },
   mixins: [userMixin],
+  computed: {
+    unlockedButton() {
+      return this.$root.rules.password.valid;
+    },
+  },
   methods: {
     validatePassword(e) {
       if(e.length > 2) {
@@ -41,6 +47,11 @@ export default {
     },
     next() {
       this.$router.push('/revise-suas-informacoes');
+    }
+  },
+  beforeRouteEnter: (to, from, next) => {
+    if (Bus.routes.password) {
+      next()
     }
   }
 }

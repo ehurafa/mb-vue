@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-     <div>this.$root.user {{ this.$root.user }}</div>
-     <hr />
-      <router-view/> 
+    <router-view/> 
   </div>
 </template>
 
