@@ -50,13 +50,23 @@ export default {
     },
     async next() {
       const options = {
+        mode: "no-cors",
         method: "POST",
         headers: { "Content-Type": "application/json", 'Access-Control-Allow-Origin': 'http://localhost:5000', 'Access-Control-Allow-Credentials': 'true' },
-        body: JSON.stringify({ title: "Vue POST Request Example" })
+        body: JSON.stringify(this.$root.user)
       };
-      const response = await fetch("http://localhost:5000/registration", options);
-      const data = await response.json();
-      this.postId = data.id;
+      try {
+        const response = await fetch("http://localhost:5000/registration", options);
+        if (!response.ok) {
+          const message = `An error has occured: ${response.status} - ${response.statusText}`;
+          throw new Error(message);
+        }
+        const data = await response.json();
+
+        console.log(data)
+      } catch (err) {
+        console.error(err.message);
+      }
     }
   },
   beforeRouteEnter: (to, from, next) => {

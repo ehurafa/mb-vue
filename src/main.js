@@ -58,13 +58,6 @@ new Vue({
         valid: null
     },
     },
-    valid_routes: {
-      welcome: true,
-      physical_person: false,
-      legal_person: false,
-      password: false,
-      review_information: false
-    }
   },
   router,
   components: { App },

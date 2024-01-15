@@ -4,10 +4,10 @@ export const Bus = new Vue({
   data: () => {
     return {
       routes: {
-        physical_person: true,
-        legal_person: true,
-        password: true,
-        review_information: true
+        physical_person: false,
+        legal_person: false,
+        password: false,
+        review_information: false
       }
     }
   },

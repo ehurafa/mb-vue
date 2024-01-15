@@ -93,7 +93,7 @@ export default {
       this.$router.push('/pessoa-fisica');
     },
     next() {
-      Bus.unLockStep4();
+      Bus.unLockStep3();
       this.$router.push('/senha-de-acesso');
     }
   },
