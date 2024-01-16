@@ -12,6 +12,7 @@
       <Field>
         <Button label="Continuar" :disabled="!unlockedButton" @goto="next" />
       </Field>
+      <Snackbar v-show="show_snackbar" type="error" :message="message" />
     </div>
   </Content>  
 </template>
@@ -23,6 +24,7 @@ import Input from "@/components/input/Input";
 import Button from "@/components/button/Button";
 import RadioGroup from "@/components/radio-group/RadioGroup";
 import Step from "@/components/step/Step";
+import Snackbar from "@/components/snackbar/Snackbar";
 
 import UTILS from "@/utils/utils";
 import MESSAGES from "@/utils/messages";
@@ -31,19 +33,21 @@ import { Bus } from '@/Bus';
 
 export default {
   name: 'Welcome',
-  components: { Content, Field, Input, Button, RadioGroup, Step },
+  components: { Content, Field, Input, Button, RadioGroup, Step, Snackbar },
   mixins: [userMixin],
   data: () => {
     return {
-      user_type: ''
+      user_type: '',
+      show_snackbar: false
     }
   },
   methods: {
     validateEmail() {
       if(UTILS.validateEmail(this.$root.user.email)) {
         this.$root.rules.email.valid = true;
+        this.hideSnackbar();
       } else {
-        this.showErrorMessage(MESSAGES.invalid_email);
+        this.showSnackbar(MESSAGES.invalid_email);
         this.$root.rules.email.valid = false;
       }
     },

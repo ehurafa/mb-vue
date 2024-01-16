@@ -1,0 +1,44 @@
+.snackbar {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    width: 50vw;
+    height: 2.5rem;
+    margin-left: -25vw;
+    border-radius: 4px;
+    color: $color-white;
+    font-size: 0.8rem;
+    text-align: center;
+    line-height: 2.5rem;
+
+    &.error {
+        background-color: $color-error;
+    }
+    &.success {
+        background-color: $color-success;
+    }
+}
+
+.slide-enter {
+    bottom: -50px;
+}
+
+.slide-enter-active {
+    transition: all .7s;
+}
+
+.slide-enter-to {
+    bottom: 10px;
+}
+
+.slide-leave {
+    bottom: 10px;
+}
+
+.slide-leave-active {
+    transition: all .3s;
+}
+
+.slide-leave-to {
+    bottom: -50px;
+}

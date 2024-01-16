@@ -1,6 +1,5 @@
 import Vue from 'vue';
 export const Bus = new Vue({
-
   data: () => {
     return {
       routes: {
@@ -8,7 +7,7 @@ export const Bus = new Vue({
         legal_person: false,
         password: false,
         review_information: false
-      }
+      },
     }
   },
   methods: {
@@ -31,6 +30,6 @@ export const Bus = new Vue({
     },
     unLockStep4() {
       this.routes.review_information = true;
-    },
+    }
   }
 });
