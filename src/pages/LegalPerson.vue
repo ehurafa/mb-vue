@@ -90,7 +90,7 @@ export default {
       this.$root.user.creationdate = UTILS.dateMask(e)
     },
     prev() {
-      this.$router.push('/pessoa-fisica');
+      this.$router.push('/');
     },
     next() {
       Bus.unLockStep3();

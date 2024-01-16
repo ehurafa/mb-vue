@@ -5,10 +5,6 @@ const userMixin = {
         }
     },
     methods: {
-        showErrorMessage(message) {
-            console.log('message ', message);
-            this.$emit('message', message);
-        },
         showSnackbar(message) {
             this.message = message;
             this.show_snackbar = true;
