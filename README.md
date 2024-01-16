@@ -2,7 +2,7 @@
 
 ## Como rodar o projeto
 1. Instalar as dependências (npm i). Possivelmente terá que adiconar _--legacy-peer-deps_
-2. Rodar o backend (num run server)
+2. Rodar o backend (npm run server)
 3. Rodar o front-end (npm run dev)
 ---
 
